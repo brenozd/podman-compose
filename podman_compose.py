@@ -2248,6 +2248,7 @@ async def compose_systemd(compose, args):
                     f.write(f"{k}={v}\n")
         log.debug("writing [%s]: done.", fn)
         log.info("\n\ncreating the pod without starting it: ...\n\n")
+        await create_pods({"pods": [f"pod_{proj_name}"]}, {})
         username = getpass.getuser()
         print(
             f"""
